@@ -68,3 +68,28 @@ console.log(calculateTotalPrice([164, 48, 291])); // повертає 503
 console.log(calculateTotalPrice([412, 371, 94, 63, 176])); // повертає 1116
 console.log(calculateTotalPrice([])); // повертає 0
 console.log(calculateTotalPrice([2, 4, 8])); //
+
+let arr = [];
+
+console.log(fillArray(2, 10));
+
+function fillArray(min, max) {
+  for (let i = min; i <= max; i += 2) {
+    return arr.push(i);
+  }
+}
+
+console.log(arr);
+
+function calculateTax(amount, taxRate = 0.2) {
+  return amount * taxRate;
+}
+
+console.log(calculateTax(100, 0.1)); // повертає 10
+console.log(calculateTax(200, 0.1)); // повертає 20
+console.log(calculateTax(100, 0.2)); // повертає 20
+console.log(calculateTax(200, 0.2)); // повертає 40
+console.log(calculateTax(100, 0.3)); // повертає 30
+console.log(calculateTax(200, 0.3)); // повертає 60
+console.log(calculateTax(100)); // повертає 20
+console.log(calculateTax(200)); // повертає 40
