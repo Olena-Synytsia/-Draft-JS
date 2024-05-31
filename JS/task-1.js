@@ -93,3 +93,19 @@ console.log(calculateTax(100, 0.3)); // повертає 30
 console.log(calculateTax(200, 0.3)); // повертає 60
 console.log(calculateTax(100)); // повертає 20
 console.log(calculateTax(200)); // повертає 40
+
+function filterArray(numbers, value) {
+  let array = [];
+  for (let i = 0; i < numbers.length; i += 1) {
+    if (numbers[i] > value) {
+      array.push(numbers[i]);
+    }
+  }
+  return array;
+}
+
+console.log(filterArray([1, 2, 3, 4, 5], 3)); // [4, 5]
+console.log(filterArray([1, 2, 3, 4, 5], 4)); // [5]
+console.log(filterArray([1, 2, 3, 4, 5], 5)); // []
+console.log(filterArray([12, 24, 8, 41, 76], 38)); // [41, 76]
+console.log(filterArray([12, 24, 8, 41, 76], 20)); // [24, 41, 76]
