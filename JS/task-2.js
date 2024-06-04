@@ -23,4 +23,4 @@ const bookGenres = book.genres;
 console.log(bookGenres); // ["historical prose", "adventure"]
 
 const bookPrice = book.price;
-console.log(bookPrice); //
+console.log(bookPrice); // undefined
