@@ -1,37 +1,39 @@
-// function calcAverageCalories(days) {
-//   if (days.length === 0) {
-//     return 0;
-//   }
+const profile = {
+  users: {
+    Jacob: {
+      playTime: 300,
+      amount: 300,
+    },
+  },
 
-//   let averageCalories = 0;
-//   for (const day of days) {
-//     averageCalories += day.calories;
-//   }
-//   return averageCalories / days.length;
-// }
+  changeUsername(oldName, newName) {
+    this.users[newName] = { ...this.users[oldName] };
+    delete this.users[oldName];
+  },
 
-// console.log(
-//   calcAverageCalories([
-//     { day: "monday", calories: 3010 },
-//     { day: "tuesday", calories: 3200 },
-//     { day: "wednesday", calories: 3120 },
-//     { day: "thursday", calories: 2900 },
-//     { day: "friday", calories: 3450 },
-//     { day: "saturday", calories: 3280 },
-//     { day: "sunday", calories: 3300 },
-//   ])
-// ); // 3180
+  updatePlayTime(username, hours) {
+    this.users[username].playTime += hours;
+    this.users[username].amount = this.users[username].playTime;
+  },
 
-// console.log(
-//   calcAverageCalories([
-//     { day: "monday", calories: 2040 },
-//     { day: "tuesday", calories: 2270 },
-//     { day: "wednesday", calories: 2420 },
-//     { day: "thursday", calories: 1900 },
-//     { day: "friday", calories: 2370 },
-//     { day: "saturday", calories: 2280 },
-//     { day: "sunday", calories: 2610 },
-//   ])
-// ); // 2270
+  getInfo(username) {
+    const user = this.users[username];
+    return `${username} has ${user.amount} active hours!`;
+  },
+};
 
-// console.log(calcAverageCalories([])); // 0
+console.log(profile.getInfo("Jacob")); // Output: "Jacob has 300 active hours!"
+
+profile.changeUsername("Jacob", "Marco");
+console.log(profile.getInfo("Marco")); // Output: "Marco has 300 active hours!"
+
+profile.updatePlayTime("Marco", 20);
+console.log(profile.getInfo("Marco")); // Output: "Marco has 320 active hours!"
+
+profile.changeUsername("Marco", "Вася");
+profile.updatePlayTime("Вася", 115);
+console.log(profile.getInfo("Вася")); // Output: "Вася has 415 active hours!"
+
+profile.changeUsername("Вася", "Коля");
+profile.updatePlayTime("Коля", 100);
+console.log(profile.getInfo("Коля"));
