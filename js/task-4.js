@@ -126,34 +126,53 @@
 // console.log(sortedByAscendingRating);
 // console.log(sortedByDescentingRating);
 
-const books = [
-  {
-    title: "The Last Kingdom",
-    author: "Bernard Cornwell",
-    rating: 8.38,
-  },
-  {
-    title: "Beside Still Waters",
-    author: "Robert Sheckley",
-    rating: 8.51,
-  },
-  {
-    title: "The Dream of a Ridiculous Man",
-    author: "Fyodor Dostoevsky",
-    rating: 7.75,
-  },
-  { title: "Redder Than Blood", author: "Tanith Lee", rating: 7.94 },
-  {
-    title: "The Dreams in the Witch House",
-    author: "Howard Lovecraft",
-    rating: 8.67,
-  },
+// const books = [
+//   {
+//     title: "The Last Kingdom",
+//     author: "Bernard Cornwell",
+//     rating: 8.38,
+//   },
+//   {
+//     title: "Beside Still Waters",
+//     author: "Robert Sheckley",
+//     rating: 8.51,
+//   },
+//   {
+//     title: "The Dream of a Ridiculous Man",
+//     author: "Fyodor Dostoevsky",
+//     rating: 7.75,
+//   },
+//   { title: "Redder Than Blood", author: "Tanith Lee", rating: 7.94 },
+//   {
+//     title: "The Dreams in the Witch House",
+//     author: "Howard Lovecraft",
+//     rating: 8.67,
+//   },
+// ];
+// const MIN_BOOK_RATING = 8;
+
+// const names = books
+//   .filter((book) => book.rating > MIN_BOOK_RATING)
+//   .map((book) => book.author)
+//   .toSorted((a, b) => a.localeCompare(b));
+
+// console.log(names);
+
+const products = [
+  { name: "Apple", category: "fruits", price: 1.2, stock: 50 },
+  { name: "Banana", category: "fruits", price: 0.8, stock: 100 },
+  { name: "Carrot", category: "vegetables", price: 0.5, stock: 200 },
+  { name: "Broccoli", category: "vegetables", price: 1.0, stock: 150 },
+  { name: "Milk", category: "dairy", price: 1.5, stock: 20 },
+  { name: "Cheese", category: "dairy", price: 2.5, stock: 5 },
+  { name: "Chicken", category: "meat", price: 5.0, stock: 30 },
+  { name: "Beef", category: "meat", price: 7.0, stock: 25 },
 ];
-const MIN_BOOK_RATING = 8;
 
-const names = books
-  .filter((book) => book.rating > MIN_BOOK_RATING)
-  .map((book) => book.author)
-  .toSorted((a, b) => a.localeCompare(b));
+function areAllDairyStockAboveTen(products) {
+  return products
+    .filter((product) => product.category === "dairy")
+    .every((product) => product.stock > 10);
+}
 
-console.log(names);
+console.log(areAllDairyStockAboveTen(products));
