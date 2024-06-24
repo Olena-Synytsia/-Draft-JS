@@ -31,10 +31,7 @@ class User {
   }
 }
 
-const mango = new User({
-  name: "Mango",
-  email: "mango@mail.com",
-});
+const mango = new User({ name: "Mango", email: "mango@mail.com" });
 
 console.log(mango.getEmail()); // “mango@mail.com”
 console.log(mango);
